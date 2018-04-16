@@ -1,35 +1,33 @@
-import java.awt.*;
-
 public class Complex {
 
-    private double Re;
-    private double Im;
+    private double re;
+    private double im;
 
     public Complex(double Re, double Im) {
-        this.Re = Re;
-        this.Im = Im;
+        this.re = Re;
+        this.im = Im;
     }
 
 
-    public  Complex Addition(Complex c2) {
-        return new Complex(this.Re + c2.Re, this.Im + c2.Im);
+    public  Complex add(Complex c2) {
+        return new Complex(this.re + c2.re, this.im + c2.im);
     }
 
-    public  Complex Dif(Complex c2) {
-        return new Complex(this.Re - c2.Re, this.Im - c2.Im);
+    public  Complex subtract(Complex c2) {
+        return new Complex(this.re - c2.re, this.im - c2.im);
     }
 
 
-    public  Complex Mult(Complex c2) {
-        return new Complex(this.Re * c2.Re - this.Im * c2.Im, this.Re * c2.Im + this.Im * c2.Re);
+    public  Complex multiply(Complex c2) {
+        return new Complex(this.re * c2.re - this.im * c2.im, this.re * c2.im + this.im * c2.re);
     }
 
     public String toString(){
-        if (Im >= 0) {
-            return Re + "+" + Im + "i";
+        if (im >= 0) {
+            return re + "+" + im + "i";
         }
         else
-            return Re + "-" + Im + "i";
+            return re + "-" + im + "i";
     }
 
 }
