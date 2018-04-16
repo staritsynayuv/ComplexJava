@@ -1,42 +1,58 @@
-import java.awt.*;
 import java.util.Scanner;
 
 public class Main {
-    public  static Complex complex1;
-    public static Complex complex2;
+
+
 
     static Scanner in = new Scanner(System.in);
 
-    public static void enterComplex(){
+    public static Complex enterComplex(){
 
-        complex1 = new Complex(in.nextDouble(), in.nextDouble());
-        complex2 = new Complex(in.nextDouble(), in.nextDouble());
-        System.out.println("c1=" + complex1.toString());
-        System.out.println("c2=" + complex2.toString());
+        return new Complex(in.nextDouble(), in.nextDouble());
+
 
     }
 
     public static void main(String[] args){
-        System.out.println("Введите действительную и мнимую часть");
-        enterComplex();
+
         while (true) {
+
             System.out.println("Введите команду");
             String command = in.next();
 
+            if (command.equals("exit")) {
+                break;
+            }
+
+            System.out.println("Введите действительную и мнимую часть");
+            Complex complex1 = enterComplex();
+            Complex complex2 = enterComplex();
+
+            System.out.println("c1=" + complex1.toString());
+            System.out.println("c2=" + complex2.toString());
+
+
             if (command.equals("add")) {
-                Complex res = complex1.Addition(complex2);
+
+                Complex res = complex1.add(complex2);
                 System.out.println("Ответ: " + res.toString());
             }
 
             if (command.equals("dif")) {
-                Complex res = complex1.Dif(complex2);
+
+                Complex res = complex1.subtract(complex2);
                 System.out.println("Ответ: " + res.toString());
             }
 
             if (command.equals("mult")) {
-                Complex res = complex1.Mult(complex2);
+
+                Complex res = complex1.multiply(complex2);
                 System.out.println("Ответ: " + res.toString());
             }
+
+
+
+
         }
 
     }
